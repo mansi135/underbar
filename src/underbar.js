@@ -126,11 +126,10 @@
     var res =[];
 
     if(isSorted) {
-     for (var i = 0; i < array.length; i++){
-      if ( iterator(array[i]) ) {
-        res.push(array[i]);
-        res.push(array[i+1]);
-        break;
+     res.push(array[0]);
+     for (var i = 1; i < array.length; i++){
+      if ( iterator(array[i]) !== iterator(array[i-1]) ) {
+          res.push(array[i]);
       }
      }
     } else {
@@ -140,14 +139,6 @@
         }
       }
     }
-
-
-   /* res.push(array[0]);
-      for (var i = 1; i < array.length; i++) {
-        if (array[i] !== array [i-1]) {
-          res.push(array[i]);
-        }
-      } */
 
     return res;
 
