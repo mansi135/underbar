@@ -125,13 +125,20 @@
   
     var res =[];
 
-    if(isSorted) {
+    if(isSorted) {        // As Clarence suggested , for this exercise isSorted is always false or undefined
      res.push(array[0]);
      for (var i = 1; i < array.length; i++){
       if ( iterator(array[i]) !== iterator(array[i-1]) ) {
           res.push(array[i]);
       }
      }
+    } else if(iterator) {   //iterator works on all values of array whenever it is defined regardless of isSorted 
+      res.push(array[0]);
+      for (var i = 1; i < array.length; i++){
+        if ( iterator(array[i]) !== iterator(array[i-1]) ) {
+            res.push(array[i]);
+        }
+      }
     } else {
       for (var i = 0; i < array.length; i++){
         if (_.indexOf(res,array[i]) === -1){
